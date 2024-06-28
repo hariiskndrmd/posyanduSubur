@@ -31,7 +31,7 @@ date_default_timezone_set('Asia/Jakarta');
 //  $config['base_url'] = $base_url; 
 // untuk xamppnya yang bermasalah, tidak muncul bootsrapnya
 
-$config['base_url'] = 'https://posyandusubur.com/';
+$config['base_url'] = 'https://posyandusubur.com/coba/';
 
 /*
 |--------------------------------------------------------------------------
