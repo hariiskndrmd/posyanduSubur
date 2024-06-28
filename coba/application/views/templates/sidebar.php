@@ -42,7 +42,7 @@
                 </ul>
 
                 <ul class="nav side-menu">
-                    <li><a href="<?= base_url('penimbangan_anak/data_penimbangan') ?>"><i class="fa fa-list"></i> Data Penimbangan</a>
+                    <li><a href="<?= base_url('penimbangananak/datapenimbangan') ?>"><i class="fa fa-list"></i> Data Penimbangan</a>
                     </li>
                 </ul>
                 <ul class="nav side-menu">
