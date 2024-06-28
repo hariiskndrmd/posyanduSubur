@@ -3,10 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
+        
 	// MULAI LOGIN
 	public function index()
 	{
-		$data['title'] = 'Posyandu Sakura';
+		$data['title'] = 'Posyandu Subur';
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		if ($this->form_validation->run() == false) {
 			$this->load->view('login/login', $data);
@@ -29,7 +30,7 @@ class Login extends CI_Controller
 		if ($user) {
 			if ($user['is_active'] == 1) {
 				// if(password_verify($pw, $user['password'])){
-				if ($pw == $pass) {
+				if ($pw == $pass) { // Gantilah dengan password_verify($pw, $user['password']) jika password di-hash
 					$data = [
 						'id_users' => $user['id_users'],
 						'username' => $user['username'],
@@ -38,24 +39,21 @@ class Login extends CI_Controller
 						'is_active' => $user['is_active']
 					];
 					$this->session->set_userdata($data);
+		
+					date_default_timezone_set('Asia/Jakarta');
+					$tanggal = date('y-m-d h:i:s');
+					$data_login_attempts = ['user_id' => $user['id_users'], 'date_time' => $tanggal];
+					$this->db->insert('login_attempts', $data_login_attempts);
+		
 					if ($user['level_id'] == 1) {
-						date_default_timezone_set('Asia/Jakarta');
-						$tanggal = date('y-m-d h:i:s');
-
-						$data = array('user_id' => $user['id_users'], 'date_time' => $tanggal);
-						$this->db->insert('login_attempts', $data);
-
 						$this->session->set_flashdata('success', 'Selamat Datang, Petugas!');
 						redirect('dashboard/petugas');
-					} else {
-						date_default_timezone_set('Asia/Jakarta');
-						$tanggal = date('y-m-d h:i:s');
-
-						$data = array('user_id' => $user['id_users'], 'date_time' => $tanggal);
-						$this->db->insert('login_attempts', $data);
-
+					} elseif ($user['level_id'] == 2) { // Misalnya level_id 2 untuk Bidan
 						$this->session->set_flashdata('success', 'Selamat Datang, Bidan!');
 						redirect('dashboard/bidan');
+					} else {
+						$this->session->set_flashdata('success', 'Selamat Datang, Ibu!');
+						redirect('Children');
 					}
 				} else {
 					$this->session->set_flashdata('msg-info', 'Password yang anda masukkan salah');
@@ -74,14 +72,24 @@ class Login extends CI_Controller
 
 	// MULAI LOGOUT
 	public function logout()
-	{
-		$this->session->set_flashdata('warning', 'Anda sudah keluar dari aplikasi');
+{
+    // Set flash message to notify the user that they have been logged out
+    $this->session->set_flashdata('warning', 'Anda sudah keluar dari aplikasi');
 
-		$this->session->unset_userdata('username');
-		$this->session->unset_userdata('name');
-		$this->session->unset_userdata('level_id');
+    // Unset all userdata
+    $this->session->unset_userdata('id_users');
+    $this->session->unset_userdata('username');
+    $this->session->unset_userdata('name');
+    $this->session->unset_userdata('level_id');
+    $this->session->unset_userdata('is_active');
 
-		redirect('login');
-	}
-	// SELESAI LOGOUT
+    // Alternatively, you can destroy the session completely
+    $this->session->sess_destroy();
+
+    // Redirect to the login page
+    redirect('login');
 }
+
+	// SELESAI LOGOUT
+	}
+

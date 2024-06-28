@@ -12,7 +12,7 @@ class Bidan extends CI_Controller
     // MULAI INDEX DATA BIDAN
     public function index()
     {
-        $data['title'] = 'Data Bidan | Posyandu Posyandu Sakura';
+        $data['title'] = 'Data Bidan | Posyandu Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $data['users'] = $this->Bidan_model->getDataUsers();

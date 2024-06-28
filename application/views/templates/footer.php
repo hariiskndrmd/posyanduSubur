@@ -4,7 +4,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        <span>Copyright &copy; Posyandu Sakura <?= date('Y'); ?></span>
+        <span>Copyright &copy; Posyandu Subur <?= date('Y'); ?></span>
     </div>
     <div class="clearfix"></div>
 </footer>

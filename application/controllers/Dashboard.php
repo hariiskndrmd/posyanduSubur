@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
     // MULAI MENAMPILKAN DASHBOARD PETUGAS
     public function petugas()
     {
-        $data['title'] = 'Dashboard | Posyandu Posyandu Sakura';
+        $data['title'] = 'Dashboard | Posyandu Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $users = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         // print_r($data);
@@ -40,7 +40,7 @@ class Dashboard extends CI_Controller
     // MULAI MENAMPILKAN DASHBOARD BIDAN
     public function bidan()
     {
-        $data['title'] = 'Dashboard | Posyandu Posyandu Sakura';
+        $data['title'] = 'Dashboard | Posyandu Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $users = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         // print_r($data);
@@ -65,4 +65,31 @@ class Dashboard extends CI_Controller
         $this->load->view('templates/footer');
     }
     // SELESAI MENAMPILKAN DASHBOARD BIDAN
+
+    public function Children()
+    {
+        $data['title'] = 'Dashboard | Posyandu Posyandu Subur';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $users = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        // print_r($data);
+
+        $a = $this->Dashboard_model->dataIbu();
+        $b = $this->Dashboard_model->dataAnak();
+        $c = $this->Dashboard_model->dataIbu();
+
+        $id = $users['id_users'];
+        $d = $this->Dashboard_model->dataLog($id);
+
+        $data['count_ibu'] = $a;
+        $data['count_anak'] = $b;
+        $data['count_bidan'] = $c;
+        $data['count_log'] = $d;
+
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar-ibu');
+        $this->load->view('templates/topbar-ibu', $data);
+        $this->load->view('children/index', $data);
+        $this->load->view('templates/footer');
+    }
 }

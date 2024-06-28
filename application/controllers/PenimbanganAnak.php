@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Penimbangan_Anak extends CI_Controller
+class PenimbanganAnak extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class Penimbangan_Anak extends CI_Controller
     // MULAI MENAMPILKAN
     public function index()
     {
-        $data['title'] = 'Penimbangan Anak | Posyandu Posyandu Sakura';
+        $data['title'] = 'Penimbangan Anak | Posyandu Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['d_anak'] = $this->Penimbangan_model->getDataAnakIbu();
 
@@ -30,7 +30,7 @@ class Penimbangan_Anak extends CI_Controller
     // MULAI TAMBAH DATA
     public function submit()
     {
-        $data['title'] = 'Penimbangan Anak | Posyandu Sakura';
+        $data['title'] = 'Penimbangan Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -64,7 +64,7 @@ class Penimbangan_Anak extends CI_Controller
 
         // $q=$this->db->query("SELECT * FROM imunisasi WHERE id_imunisasi ORDER BY id_imunisasi DESC");
         // $b=$this->db->fetch_array($q);
-        $data['title'] = 'Penimbangan Anak | Posyandu Sakura';
+        $data['title'] = 'Penimbangan Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['row'] = $this->anak_model->edit('penimbangan', array('id_penimbangan'))->result_array();
 

@@ -12,7 +12,7 @@ class Petugas extends CI_Controller
     // MULAI INDEX DATA PETUGAS
     public function index()
     {
-        $data['title'] = 'Data Petugas | Posyandu Posyandu Sakura';
+        $data['title'] = 'Data Petugas | Posyandu Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $data['users'] = $this->Petugas_model->getDataUsers();

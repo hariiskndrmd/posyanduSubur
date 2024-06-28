@@ -13,7 +13,7 @@ class Imunisasi_Anak extends CI_Controller
     // MULAI MENAMPILKAN
     public function index()
     {
-        $data['title'] = 'Imunisasi Anak | Posyandu Sakura';
+        $data['title'] = 'Imunisasi Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['d_anak'] = $this->Imunisasi_model->getDataAnakIbu();
 
@@ -32,7 +32,7 @@ class Imunisasi_Anak extends CI_Controller
     {
         // $q=$this->db->query("SELECT * FROM imunisasi WHERE id_imunisasi ORDER BY id_imunisasi DESC");
         // $b=$this->db->fetch_array($q);
-        $data['title'] = 'Imunisasi Anak | Posyandu Sakura';
+        $data['title'] = 'Imunisasi Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['row'] = $this->anak_model->edit('imunisasi', array('id_imunisasi'))->result_array();
 
@@ -46,14 +46,14 @@ class Imunisasi_Anak extends CI_Controller
     // MULAI MENAMPILKAN
     public function imunisasi()
     {
-        $data['title'] = 'Imunisasi Anak | Posyandu Sakura';
+        $data['title'] = 'Imunisasi Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['d_anak'] = $this->Imunisasi_model->getDataAnakIbu();
 
         // var_dump($data['d_anak']);
         // die;
         $this->load->view('templates/header-datatables', $data);
-        $this->load->view('templates/sidebar-bidan');
+        $this->load->view('templates/sidebar-bidan', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('layanan/imunisasi_bidan', $data);
         $this->load->view('templates/footer-datatables');
@@ -63,7 +63,7 @@ class Imunisasi_Anak extends CI_Controller
     // MULAI TAMBAH DATA
     public function submit()
     {
-        $data['title'] = 'Imunisasi Anak | Posyandu Sakura';
+        $data['title'] = 'Imunisasi Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -94,7 +94,7 @@ class Imunisasi_Anak extends CI_Controller
     // MULAI TAMBAH DATA
     public function submit_imun()
     {
-        $data['title'] = 'Imunisasi Anak | Posyandu Sakura';
+        $data['title'] = 'Imunisasi Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();

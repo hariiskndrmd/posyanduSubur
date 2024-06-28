@@ -94,16 +94,17 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="bb">Berat Badan [BB]
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input type=number step=any id="bb" name="bb" class="form-control">
+                                
+                                <input type=number step=any id="bb" name="bb" class="form-control" value="100">
                             </div>
-                            <label class="col-form-label label-align" for="bb">kg
+                            <label class="col-form-label label-align" for="bb" >kg
                             </label>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="tb">Tinggi Badan [TB]
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input type=number step=any id="tb" name="tb" class="form-control">
+                                <input type=number step=any id="tb" name="tb" class="form-control" value="20">
                             </div>
                             <label class="col-form-label label-align" for="tb">cm
                             </label>

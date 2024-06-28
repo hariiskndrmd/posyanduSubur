@@ -13,7 +13,7 @@ class Anak extends CI_Controller
     // MULAI INDEX DATA ANAK
     public function index()
     {
-        $data['title'] = 'Data Anak | Posyandu Sakura';
+        $data['title'] = 'Data Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $data['anak'] = $this->Anak_model->getDataAnak();
@@ -64,7 +64,7 @@ class Anak extends CI_Controller
     function editDataAnak()
     {
         $id = $this->uri->segment(3);
-        $data['title'] = 'Edit Data Anak | Posyandu Sakura';
+        $data['title'] = 'Edit Data Anak | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $data['row'] = $this->Anak_model->edit('anak', array('id_anak' => $id))->row_array();

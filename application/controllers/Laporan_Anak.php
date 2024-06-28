@@ -13,7 +13,7 @@ class Laporan_Anak extends CI_Controller
     // MULAI MENAMPILKAN
     public function index()
     {
-        $data['title'] = 'Laporan Anak | Posyandu Posyandu Sakura';
+        $data['title'] = 'Laporan Anak | Posyandu Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['d_anak'] = $this->Laporan_model->getDataAnakIbu();
 
@@ -81,7 +81,7 @@ class Laporan_Anak extends CI_Controller
             // <td width='50' align='center'><h1>POSYANDU EH INDAH</h1></td>
             // </tr>
             // </table>");
-            $mpdf->SetFooter("Laporan Perkembangan Anak | Posyandu Sakura | {PAGENO}");
+            $mpdf->SetFooter("Laporan Perkembangan Anak | Posyandu Subur | {PAGENO}");
             $mpdf->SetMargins(0, 0, 10);
 
             $html = "<h1 align='center' style='margin-bottom:1px'>Laporan Perkembangan Anak</h1>";

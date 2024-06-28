@@ -53,9 +53,9 @@
                     <br />
 
                     <div>
-                        </i>Posyandu Sakura</h1>
-                        <span>Copyright &copy; Posyandu Sakura <?= date('Y'); ?></span>
+                        </i>Posyandu Subur</h1>
                     </div>
+                    <div> <span>&copy; Copyright <?= date('Y'); ?></span> </div>
                 </div>
             </form>
         </section>

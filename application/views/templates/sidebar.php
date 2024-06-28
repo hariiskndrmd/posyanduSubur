@@ -37,7 +37,7 @@
             <div class="menu_section">
                 <h3>Layanan</h3>
                 <ul class="nav side-menu">
-                    <li><a href="<?= base_url('penimbangan_anak/index') ?>"><i class="fa fa-file-text"></i> Penimbangan Anak</a>
+                    <li><a href="<?= base_url('PenimbanganAnak') ?>"><i class="fa fa-file-text"></i> Penimbangan Anak</a>
                     </li>
                 </ul>
 

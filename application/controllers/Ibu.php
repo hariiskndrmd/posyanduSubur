@@ -11,7 +11,7 @@ class Ibu extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Data Ibu | Posyandu Sakura';
+        $data['title'] = 'Data Ibu | Posyandu Subur';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $data['ibu'] = $this->Ibu_model->getDataIbu();
